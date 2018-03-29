@@ -45,8 +45,8 @@ int main(){
         }
     }
     r=n[0];
-    g=n[1];
-    b=n[3];
+    b=n[1];
+    g=n[3];
     pc.printf("r=%d,g=%d,b=%d\n",r,g,b);
     if(once){
     con[0]=255.0/r; // get the ratio factor for red
