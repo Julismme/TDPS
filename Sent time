@@ -1,0 +1,35 @@
+#include "mbed.h"
+
+Serial hc12(p9,p10);
+
+struct tm t;                         // current time will be stored here
+
+int main()
+{
+    hc12.baud(9600); //Baud rate
+    /* UNCOMMENT BELOW if you want to set time manually */
+    //*
+        t.tm_year = 2018;     // current year
+        t.tm_mon = 3;         // current month
+        t.tm_mday = 28;        // current day
+        t.tm_hour = 21;       // current hour
+        t.tm_min = 59;        // current minute
+        t.tm_sec = 0;         // current second
+
+        t.tm_year = t.tm_year - 1900;   // adjust for tm structure required values
+        t.tm_mon = t.tm_mon - 1;
+
+        set_time(mktime(&t));           // set the time
+        /*/
+
+    /* Once the time is set, if there is a battery (3V) connected to VB pin and GND, RTC will remember the exact time. */
+
+    while(1) {
+        time_t seconds = time(NULL);
+
+        hc12.printf("Team Name: TurboT                  ");
+        hc12.printf("Team Member Names:Mingxuan Du,Jiuzhang Jiang,Yang Ni,Boyu Zhou,Han Wang,Zhenhua Cui,Yuxiang Liu,Qiyun Peng,Xinlu Chen,Daye Wei    ");
+        hc12.printf("Time of day: %s ",ctime(&seconds));
+        wait(1);
+    }
+}
