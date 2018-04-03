@@ -50,13 +50,13 @@ int main(){
     pc.printf("r=%d,g=%d,b=%d\n",r,g,b);
     if(once){
     con[0]=255.0/r; // get the ratio factor for red
-    con[1]=255.0/g; // get the ratio factor for green
-    con[2]=255.0/b; // get the ratio factor for blue
+    con[1]=255.0/b; // get the ratio factor for green
+    con[2]=255.0/g; // get the ratio factor for blue
     once = false;
     }
     R=con[0]*n[0];
-    G=con[1]*n[1];
-    B=con[2]*n[3];
+    B=con[1]*n[1];
+    G=con[2]*n[3];
     pc.printf("R=%d,G=%d,B=%d\n",R,G,B);
     LED = 0;
     wait(3);
