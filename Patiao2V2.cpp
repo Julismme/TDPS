@@ -305,6 +305,33 @@ int main(){// UNCOMMENT BELOW if you want to set time manually
                 zt=zt+360;
             }
         }
+        brake(1);
+        z=dir(z);
+        for(int i=0;i<5;i++){
+            z=(dir(z)+z)/2;
+        }
+        zt=z;
+        z=z+45;
+        if(z>180){
+            z=z-360;
+        }
+        if(z<-90&&zt>90){
+            zt=zt-360;
+        }
+        if(z>90&&zt<-90){
+            zt=zt+360;
+        }
+        while(z-zt>0){
+            Lturn(0.5/100*(z-zt));
+            wait(0.1);
+            zt=dir(zt);
+            if(z<-90&&zt>90){
+                zt=zt-360;
+            }
+            if(z>90&&zt<-90){
+                zt=zt+360;
+            }
+        }
     }
     if(l2==1){
         zt=z;
@@ -332,6 +359,33 @@ int main(){// UNCOMMENT BELOW if you want to set time manually
         }
         while(z-zt>0){
             Lturn(0.5/100*(z-zt));
+            wait(0.1);
+            zt=dir(zt);
+            if(z<-90&&zt>90){
+                zt=zt-360;
+            }
+            if(z>90&&zt<-90){
+                zt=zt+360;
+            }
+        }
+        brake(1);
+        z=dir(z);
+        for(int i=0;i<5;i++){
+            z=(dir(z)+z)/2;
+        }
+        zt=z;
+        z=z-45;
+        if(z<-180){
+            z=z+360;
+        }
+        if(z<-90&&zt>90){
+            zt=zt-360;
+        }
+        if(z>90&&zt<-90){
+            zt=zt+360;
+        }
+        while(z-zt<0){
+            Rturn(0.5/100*(z-zt));
             wait(0.1);
             zt=dir(zt);
             if(z<-90&&zt>90){
