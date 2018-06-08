@@ -434,12 +434,17 @@ int main(){// UNCOMMENT BELOW if you want to set time manually
         weuiyu=0;
         wait_ms(20);
         }
+    brake(1);
     //weiyu
+    
     
     Lturn(0.7);
     wait(1);
     brake(2);
     //zuozhuan
+    
+    z=dir(z);
+    direction(z,3000);
     
     Lturn(0.7);
     wait(1);
